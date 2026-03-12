@@ -121,3 +121,81 @@
     </div>
 
     <div class="category">
+        <h2>4. Threats / Harassment</h2>
+        <p>Language expressing intent to harm or intimidate.</p>
+        <div class="example-box">Example: “I'm going to come after you if you post that again.”</div>
+        <p><strong>Key Features:</strong> Intimidation, harmful intent.</p>
+    </div>
+
+    <div class="category">
+        <h2>5. Toxic Aggression</h2>
+        <p>Highly hostile language meant to provoke conflict.</p>
+        <div class="example-box">Example: “You’re pathetic—just get lost already!”</div>
+        <p><strong>Key Features:</strong> Aggressive tone, hostility.</p>
+    </div>
+
+    <div class="category">
+        <h2>6. Neutral / Non-harmful</h2>
+        <p>Respectful, safe, factual communication.</p>
+        <div class="example-box">Example: “I don’t agree with your opinion, but I see your point.”</div>
+    </div>
+
+    <div class="category">
+        <h2>7. Ambiguous</h2>
+        <p>Meaning unclear without context.</p>
+        <div class="example-box">Example: “Watch yourself next time.”</div>
+    </div>
+
+    <!-- Summary Table -->
+    <h2>Summary Table</h2>
+
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Definition</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>Abusive / Insulting</td>
+            <td>Personal insults not identity-based.</td>
+            <td>“You’re useless.”</td>
+        </tr>
+        <tr>
+            <td>Hate Speech</td>
+            <td>Attacks based on protected traits.</td>
+            <td>“People of your religion don’t belong here.”</td>
+        </tr>
+        <tr>
+            <td>Dehumanisation</td>
+            <td>Treating others as less than human.</td>
+            <td>“They’re like animals.”</td>
+        </tr>
+        <tr>
+            <td>Threats / Harassment</td>
+            <td>Intent to harm or intimidate.</td>
+            <td>“I’ll come after you.”</td>
+        </tr>
+        <tr>
+            <td>Toxic Aggression</td>
+            <td>Highly hostile language.</td>
+            <td>“Get lost, you’re pathetic.”</td>
+        </tr>
+        <tr>
+            <td>Neutral</td>
+            <td>Non-hostile, respectful.</td>
+            <td>“Let’s discuss this politely.”</td>
+        </tr>
+        <tr>
+            <td>Ambiguous</td>
+            <td>Meaning unclear.</td>
+            <td>“Better be careful next time.”</td>
+        </tr>
+    </table>
+
+    <!-- Back to Menu -->
+    <a href="index.htm" class="back-link">← Back to Menu</a>
+
+</div>
+
+</body>
+</html>
