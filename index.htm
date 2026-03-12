@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech Rephrasing Tool</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 15px;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #0070f3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+
+        button:hover {
+            background-color: #0059c9;
+        }
+
+        .output-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f1f1f1;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Speech Rephrasing Tool</h1>
+        <p>Paste your text below to receive a clearer, more neutral version.</p>
+
+        <textarea id="inputText" placeholder="Paste your text here..."></textarea>
+
+        <button onclick="rephraseText()">Improve My Speech</button>
+
+        <div id="output" class="output-box" style="display: none;">
+            <h3>Improved Version:</h3>
+            <p id="outputText"></p>
+        </div>
+    </div>
+
+    <script>
+        async function rephraseText() {
+            const input = document.getElementById("inputText").value;
+            const outputBox = document.getElementById("output");
+            const outputText = document.getElementById("outputText");
+
+            if (!input.trim()) {
+                alert("Please enter some text first.");
+                return;
+            }
+
+            outputBox.style.display = "none";
+            outputText.innerText = "Processing...";
+
+            try {
+                const response = await fetch("http://127.0.0.1:8000/rephrase", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ text: input })
+                });
+
+                const data = await response.json();
+                outputText.innerText = data.improved;
+                outputBox.style.display = "block";
+
+            } catch (error) {
+                outputText.innerText = "Error: Could not connect to backend.";
+                outputBox.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
