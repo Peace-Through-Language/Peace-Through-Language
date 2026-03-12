@@ -57,6 +57,87 @@
 </head>
 
 <body>
+
+    <!-- === SIDEBAR MENU START === -->
+<style>
+  /* Sidebar container */
+  .sidebar {
+    width: 250px;
+    background: #f4f4f4;
+    padding: 15px;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid #ccc;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding-left: 10px;
+  }
+
+  .sidebar li {
+    margin: 6px 0;
+    cursor: pointer;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .toggle {
+    font-weight: bold;
+  }
+
+  .nested {
+    display: none;
+    margin-left: 15px;
+  }
+
+  .active {
+    display: block;
+  }
+</style>
+
+<div class="sidebar">
+  <h3>Menu</h3>
+  <ul>
+    <li class="toggle">Section 1</li>
+    <ul class="nested">
+      <li>page1.htmlPage 1</a></li>
+      <li>page2.htmlPage 2</a></li>
+    </ul>
+
+    <li class="toggle">Section 2</li>
+    <ul class="nested">
+      <li>intro.htmlIntroduction</a></li>
+      <li>chapter1.htmlChapter 1</a></li>
+      <li>chapter2.htmlChapter 2</a></li>
+    </ul>
+
+    <li class="toggle">Tools</li>
+    <ul class="nested">
+      <li>tool1.htmlTool A</a></li>
+      <li>tool2.htmlTool B</a></li>
+    </ul>
+  </ul>
+</div>
+
+<script>
+  // Simple expand/collapse behaviour
+  const toggles = document.querySelectorAll(".toggle");
+  toggles.forEach(t => {
+    t.addEventListener("click", () => {
+      t.nextElementSibling.classList.toggle("active");
+    });
+  });
+</script>
+<!-- === SIDEBAR MENU END === -->
+
+    
     <div class="container">
         <h1>Speech Rephrasing Tool</h1>
 
