@@ -148,5 +148,105 @@
             }
         }
     </script>
+
+<!-- Harmful-language example table -->
+<div class="table-wrap">
+  <table class="hl-table" role="table" aria-label="Labelled examples for harmful language">
+    <thead>
+      <tr>
+        <th scope="col">text</th>
+        <th scope="col">label</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>“You idiot, get lost”</td>
+        <td>abusive</td>
+      </tr>
+      <tr>
+        <td>“They are animals”</td>
+        <td>dehumanisation</td>
+      </tr>
+      <tr>
+        <td>“Go back to your country”</td>
+        <td>hate_speech</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="caption">This labelled data becomes the training corpus.</p>
+</div>
+
+<style>
+  /* Container to keep table + caption together */
+  .table-wrap {
+    max-width: 720px;
+    margin: 1rem 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  }
+
+  /* Table styling (soft borders + rounded corners) */
+  .hl-table {
+    width: 100%;
+    border-collapse: separate;      /* needed for rounded corners with borders */
+    border-spacing: 0;
+    background: #fff;
+    border: 1px solid #e5e7eb;      /* light grey border */
+    border-radius: 10px;            /* rounded "box" look */
+    overflow: hidden;               /* clip inner corners */
+  }
+
+  .hl-table thead th {
+    text-align: left;
+    background: #f8fafc;            /* very light header background */
+    color: #111827;
+    font-weight: 600;
+    padding: 12px 14px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .hl-table td {
+    padding: 12px 14px;
+    color: #111827;
+    vertical-align: top;
+    border-top: 1px solid #f1f5f9;  /* subtle row separators */
+  }
+
+  /* Add a vertical divider between columns (optional) */
+  .hl-table th + th,
+  .hl-table td + td {
+    border-left: 1px solid #e5e7eb;
+  }
+
+  /* Zebra stripe for readability (optional) */
+  .hl-table tbody tr:nth-child(odd) td {
+    background: #fcfdff;
+  }
+
+  /* Caption text under table */
+  .caption {
+    margin: 10px 2px 0;
+    font-size: 0.95rem;
+    color: #374151;
+  }
+
+  /* Responsive: allow text to wrap nicely on small screens */
+  @media (max-width: 520px) {
+    .hl-table th, .hl-table td {
+      padding: 10px 12px;
+      font-size: 0.95rem;
+    }
+  }
+</style>
+    
+    
+
+
+
+
+
+
+
+    
 </body>
 </html>
