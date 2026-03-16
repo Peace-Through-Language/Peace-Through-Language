@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us – Peace Through Language</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="About the Peace Through Language team and collaborators." />
+  <style>
+    :root {
+      --brand: #003366;
+      --accent: #005faa;
+      --text: #222;
+      --muted: #666;
+      --bg: #fff;
+      --table-border: #d0d7de;
+      --table-head: #f6f8fa;
+      --card-border: #e5e7eb;
+    }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; }
+    header { padding: 1.25rem 1rem; border-bottom: 1px solid #eee; }
+    header h1 { margin: 0 0 .25rem 0; font-size: 1.6rem; color: var(--brand); }
+    header p { margin: 0; color: var(--muted); }
+    nav { background: #f9fbff; border-bottom: 1px solid #e6eef8; }
+    .menu { display: flex; flex-wrap: wrap; gap: .75rem 1rem; list-style: none; margin: 0; padding: .75rem 1rem; }
+    .menu a, .menu span { text-decoration: none; color: var(--accent); font-weight: 600; }
+    .menu .section { color: var(--muted); font-weight: 700; margin-left: .5rem; margin-right: .5rem; }
+    main { max-width: 1100px; padding: 1.25rem; margin: 0 auto; }
+    h2 { color: var(--brand); margin-top: 1.25rem; }
+    .team { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1rem; }
+    .card { border: 1px solid var(--card-border); border-radius: 10px; padding: 1rem; background: #fff; }
+    .card img { width: 100%; height: auto; border-radius: 8px; object-fit: cover; }
+    .name { font-size: 1.1rem; font-weight: 700; color: var(--brand); margin: .5rem 0 .25rem; }
+    .role { color: var(--muted); margin: 0 0 .5rem; }
+    .links { margin-top: .5rem; }
+    .links a { display: inline-block; margin-right: .5rem; color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
+    .note { color: var(--muted); font-size: .95rem; }
+    footer { margin: 2rem 0 1rem; color: var(--muted); font-size: .95rem; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header>
+    <h1>Peace Through Language</h1>
+    <p>About the project, team, and our supporters.</p>
+  </header>
+
+  <!-- MENU BAR (same as in harmful-language.html) -->
+  <nav aria-label="Primary">
+    <ul class="menu">
+      <li><a href="index.htm">Main</a></li>
+      <li><a href="book.htm">Peace Through Language</a></li>
+      <li><a href="Harm.htm">Harmful Language</a></li>
+      <li><a href="harm2.htm">Harmful Language2</a></li>
+      <li><span class="section">About Us</span></li>
+      <li><a href="https://scholar.google.com/citations?user=m1gANC8AAAAJ&hl=en" target="_blank" rel="noopener">Dr. Phoebe Teh</a></li>
+      <li><a href="https://scholar.google.com/citations?user=CqZSL0sAAAAJ&hl=en" target="_blank" rel="noopener">Prof Chi-Bin Cheng</a></li>
+      <li><a href="https://wrexham.ac.uk/staff-profiles/phoebe-teh/" target="_blank" rel="noopener">Staff Profile</a></li>
+      <li><span class="section">Sponsor and Support</span></li>
+      <li><a href="https://cymru.global/our-work/peace-and-peacebuilding/academi-heddwch-cymru/" target="_blank" rel="noopener">Academi Heddwch</a></li>
+      <li><a href="https://www.thebritishacademy.ac.uk/" target="_blank" rel="noopener">British Academy</a></li>
+      <li><a href="https://www.wrexham.ac.uk/" target="_blank" rel="noopener">Wrexham University</a></li>
+    </ul>
+  </nav>
+
+  <main id="content" role="main" aria-labelledby="page-title">
+    <h2 id="page-title">About Us</h2>
+    <p>
+      <strong>Peace Through Language</strong> is a research and engagement initiative focused on understanding, measuring, and
+      transforming harmful online language into constructive, peace‑oriented communication. We design tools, corpora, and public
+      engagement activities to help communities moderate content, foster empathy, and reduce harm.
+    </p>
+
+    <section class="team" aria-label="Team">
+      <article class="card" aria-labelledby="phoey-name">
+        <img src="photo1.jpg" alt="Portrait of Dr. Phoebe (Phoey Lee) Teh" />
+        <h3 id="phoey-name" class="name">Dr. Phoebe Teh (Phoey Lee Teh)</h3>
+        <p class="role">Reader in Social Computing</p>
+        <p>
+          Phoey Lee Teh leads the Peace Through Language initiative, working at the intersection of computational linguistics,
+          NLP, and social computing. Her interests include hate‑speech and deception detection, multilingual corpora design,
+          and harm‑aware text analytics for public benefit. This project builds on her experience in corpus construction and
+          responsible AI for safer digital communication.
+        </p>
+        <div class="links">
+          <a href="https://scholar.google.com/citations?user=m1gANC8AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://wrexham.ac.uk/staff-profiles/phoebe-teh/" target="_blank" rel="noopener">University Profile</a>
+          <a href="index.htm">Project Home</a>
+        </div>
+      </article>
+
+      <article class="card" aria-labelledby="cheng-name">
+        <img src="photo2.jpg" alt="Portrait of Prof. Chi‑Bin Cheng" />
+        <h3 id="cheng-name" class="name">Prof. Chi‑Bin Cheng</h3>
+        <p class="role">Collaborator</p>
+        <p>
+          Chi‑Bin Cheng collaborates on multilingual language technologies and peace‑tech applications. His work spans AI‑assisted
+          text analysis, human‑AI interaction, and metrics for evaluating the emotional impact of online language. He contributes
+          to corpus design, evaluation protocols, and public‑facing visualisations.
+        </p>
+        <div class="links">
+          <a href="https://scholar.google.com/citations?user=CqZSL0sAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="index.htm">Project Home</a>
+        </div>
+      </article>
+    </section>
+
+    <h2>Connect & Resources</h2>
+    <ul>
+      <li><a href="index.htm">Project Home (Website)</a></li>
+      <li><a href="book.htm">Peace Through Language</a></li>
+      <li><a href="harm2.htm">Harmful Language 2</a></li>
+       <li><a href="AboutUs.htm">About Us</a></li>
+      <li><a href="mailto:info@example.org">General Contact</a></li>
+    </ul>
+
+    <p class="note">Photos will display when you upload <code>photo1.jpg</code> and <code>photo2.jpg</code> to the same folder as this page.</p>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Peace Through Language. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
