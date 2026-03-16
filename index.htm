@@ -58,88 +58,21 @@
 
 <body>
 
-    <!-- === SIDEBAR MENU START === -->
-<style>
-  /* Sidebar container */
-  .sidebar {
-    width: 250px;
-    background: #f4f4f4;
-    padding: 15px;
-    height: 100vh;
-    overflow-y: auto;
-    border-right: 1px solid #ccc;
-    position: fixed;
-    left: 0;
-    top: 0;
-  }
-
-  .sidebar ul {
-    list-style-type: none;
-    padding-left: 10px;
-  }
-
-  .sidebar li {
-    margin: 6px 0;
-    cursor: pointer;
-  }
-
-  .sidebar a {
-    text-decoration: none;
-    color: #333;
-  }
-
-  .toggle {
-    font-weight: bold;
-  }
-
-  .nested {
-    display: none;
-    margin-left: 15px;
-  }
-
-  .active {
-    display: block;
-  }
-</style>
-
-<div class="sidebar">
-  <h3>Menu</h3>
-  <ul>
-    <li class="toggle">Main</li>
-    <ul class="nested">
-        <li><a href="book.htm">Peace Through Language</a></li>
-        <li><a href="harm2.html">Harmful Language2</a></li>
+  <nav aria-label="Primary">
+    <ul class="menu">
+      <li><span>Main</span></li>
+      <li><a href="book.htm">Peace Through Language</a></li>
+      <li><a href="harm2.htm">Harmful Language2</a></li>
+      <li><span class="section">About Us</span></li>
+      <li><a href="https://scholar.google.com/citations?user=m1gANC8AAAAJ&hl=en" target="_blank" rel="noopener">Dr. Phoebe Teh</a></li>
+      <li><a href="https://scholar.google.com/citations?user=CqZSL0sAAAAJ&hl=en" target="_blank" rel="noopener">Prof Chi-Bin Cheng</a></li>
+      <li><a href="https://wrexham.ac.uk/staff-profiles/phoebe-teh/" target="_blank" rel="noopener">Staff Profile</a></li>
+      <li><span class="section">Sponsor and Support</span></li>
+      <li><a href="https://cymru.global/our-work/peace-and-peacebuilding/academi-heddwch-cymru/" target="_blank" rel="noopener">Academi Heddwch</a></li>
+      <li><a href="https://www.thebritishacademy.ac.uk/" target="_blank" rel="noopener">British Academy</a></li>
+      <li><a href="https://www.wrexham.ac.uk/" target="_blank" rel="noopener">Wrexham University</a></li>
     </ul>
-
-    <li class="toggle">About Us</li>
-    <ul class="nested">
-      <li><a href="https://scholar.google.com/citations?user=m1gANC8AAAAJ&hl=en">Dr. Phoebe Teh</a>
-      <li><a href=" https://scholar.google.com/citations?user=CqZSL0sAAAAJ&hl=en" target="_blank">Prof Chi-Bin Cheng</a>
-      <li><a href="https://wrexham.ac.uk/staff-profiles/phoebe-teh/" target="_blank">Staff Profile</a>
-    </ul>
-
-    <li class="toggle">Sponsor and Support</li>
-    <ul class="nested">
-       <li><a href="https://cymru.global/our-work/peace-and-peacebuilding/academi-heddwch-cymru/" target="_blank">Academi Heddwch</a>
-       <li><a href=" https://www.thebritishacademy.ac.uk/" target="_blank">British Academy</a>
-       <li><a href="https://www.wrexham.ac.uk" target="_blank">Wrexham University</a>
-
-     
-    </ul>
-  </ul>
-</div>
-
-<script>
-  // Simple expand/collapse behaviour
-  const toggles = document.querySelectorAll(".toggle");
-  toggles.forEach(t => {
-    t.addEventListener("click", () => {
-      t.nextElementSibling.classList.toggle("active");
-    });
-  });
-</script>
-<!-- === SIDEBAR MENU END === -->
-
+  </nav>
     
     <div class="container">
         <h1>Speech Rephrasing Tool</h1>
