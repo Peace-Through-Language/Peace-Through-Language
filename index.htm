@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Peace Through Language – Speech Rephrasing Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Peace Through Language: AI-powered rephrasing tool for constructive and peaceful online communication." />
+
+  <style>
+    :root {
+      --brand: #003366;
+      --accent: #005faa;
+      --text: #222;
+      --muted: #666;
+      --bg: #f7f7f7;
+      --card-bg: #ffffff;
+      --card-border: #e5e7eb;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 1.25rem 1rem;
+      background: #ffffff;
+      border-bottom: 1px solid #eee;
+    }
+
+    header h1 {
+      margin: 0 0 .25rem 0;
+      font-size: 1.8rem;
+      color: var(--brand);
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    nav {
+      background: #f9fbff;
+      border-bottom: 1px solid #e6eef8;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding: .75rem 1rem;
+      margin: 0;
+      gap: .75rem 1rem;
+    }
+
+    .menu a, .menu span {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .menu .section {
+      color: var(--muted);
+      font-weight: 700;
+      margin-right: .5rem;
+    }
+
+    main {
+      max-width: 900px;
+      padding: 1.5rem;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 25px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      margin-bottom: 25px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 160px;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 24px;
+      background: var(--accent);
+      border: none;
+      color: white;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #004c94;
+    }
+
+    .output-box {
+      margin-top: 20px;
+      padding: 20px;
+      background: #eef2f7;
+      border-radius: 8px;
+    }
+
+    footer {
+      margin: 2rem 0 1rem;
+      text-align: center;
+      font-size: .95rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#content" style="position:absolute;left:-999px;">Skip to content</a>
+
+  <header>
+    <h1>Peace Through Language</h1>
+    <p>AI-powered tool for supporting peaceful and constructive communication.</p>
+  </header>
+
+  <!-- NAVIGATION BAR (same format as support-sponsor.html) -->
+  <nav aria-label="Primary">
+    <ul class="menu">
+      <li><a href="index.htm">Main</a></li>
+      <li><a href="book.htm">Peace Through Language</a></li>
+      <li><a href="Harm.htm">Harmful Language</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="support-sponsor.html">Sponsor and Support</a></li>
+    </ul>
+  </nav>
+
+  <main id="content">
+    <div class="card">
+      <h2>Speech Rephrasing Tool</h2>
+      <p>Use this tool to improve your text, rephrase harmful language, and adopt more constructive, peaceful wording.</p>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0;">What This Platform Can Do for You</h2>
+
+      <p>We allow you to:</p>
+
+      <ul>
+        <li>Paste or upload text (speeches, social media posts, essays, etc.)</li>
+        <li>Run it through our AI agent connected to:
+          <ul>
+            <li>our harm detection corpus</li>
+            <li>our linguistic classifier</li>
+            <li>our GSR‑based emotional impact model</li>
+          </ul>
+        </li>
+        <li>Receive suggestions for:
+          <ul>
+            <li>rephrasing harmful segments</li>
+            <li>constructive alternatives</li>
+            <li>peace‑oriented language</li>
+            <li>sentiment/emotion impact levels</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p>Use these suggestions to improve your text.</p>
+    </div>
+
+    <div class="card">
+      <h3>Try It Yourself</h3>
+      <p>Paste your text below to receive a clearer, more neutral version.</p>
+
+      <textarea id="inputText" placeholder="Paste your text here..."></textarea>
+      <button onclick="rephraseText()">Improve My Speech</button>
+
+      <div id="output" class="output-box" style="display:none;">
+        <h3>Improved Version:</h3>
+        <p id="outputText"></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Peace Through Language. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    async function rephraseText() {
+        const input = document.getElementById("inputText").value;
+        const outputBox = document.getElementById("output");
+        const outputText = document.getElementById("outputText");
+
+        if (!input.trim()) {
+            alert("Please enter some text first.");
+            return;
+        }
+
+        outputBox.style.display = "none";
+        outputText.innerText = "Processing...";
+
+        try {
+            const response = await fetch("http://127.0.0.1:8000/rephrase", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: input })
+            });
+
+            const data = await response.json();
+            outputText.innerText = data.improved;
+            outputBox.style.display = "block";
+
+        } catch (error) {
+            outputText.innerText = "Error: Could not connect to backend.";
+            outputBox.style.display = "block";
+        }
+    }
+  </script>
+
+</body>
+</html>
