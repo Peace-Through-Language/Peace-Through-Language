@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sponsor & Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Our sponsors and supporters with links to their websites." />
+  <style>
+    :root {
+      --brand: #003366;
+      --accent: #005faa;
+      --text: #222;
+      --muted: #666;
+      --bg: #fff;
+      --table-border: #d0d7de;
+      --card-border: #e5e7eb;
+    }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; }
+    header { padding: 1.25rem 1rem; border-bottom: 1px solid #eee; }
+    header h1 { margin: 0 0 .25rem 0; font-size: 1.6rem; color: var(--brand); }
+    header p { margin: 0; color: var(--muted); }
+    nav { background: #f9fbff; border-bottom: 1px solid #e6eef8; }
+    .menu { display: flex; flex-wrap: wrap; gap: .75rem 1rem; list-style: none; margin: 0; padding: .75rem 1rem; }
+    .menu a, .menu span { text-decoration: none; color: var(--accent); font-weight: 600; }
+    .menu .section { color: var(--muted); font-weight: 700; margin-left: .5rem; margin-right: .5rem; }
+    main { max-width: 1100px; padding: 1.25rem; margin: 0 auto; }
+    h2 { color: var(--brand); margin-top: 1.25rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1rem 0; }
+    .card { border: 1px solid var(--card-border); border-radius: 10px; padding: 1rem; background: #fff; }
+    .card img { width: 100%; height: 120px; object-fit: contain; background: #fff; border-radius: 8px; }
+    .name { font-size: 1.05rem; font-weight: 700; color: var(--brand); margin: .5rem 0 .25rem; }
+    .desc { color: var(--text); margin: 0 0 .5rem; }
+    .links a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
+    .note { color: var(--muted); font-size: .95rem; }
+    footer { margin: 2rem 0 1rem; color: var(--muted); font-size: .95rem; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header>
+    <h1>Peace Through Language</h1>
+    <p>Our sponsors and supporters who make this work possible.</p>
+  </header>
+<nav aria-label="Primary">
+    <ul class="menu">
+      <li><a href="index.htm">Main</a></li>
+      <li><a href="book.htm">Peace Through Language</a></li>
+      <li><a href="Harm.htm">Harmful Language</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="sponsor.htm">Sponsor and Support</a></li>
+</nav>
+
+  <main id="content" role="main" aria-labelledby="page-title">
+    <h2 id="page-title">Sponsors & Supporters</h2>
+    <p>We are grateful to the organisations below for their support. Visit their websites to learn more about their missions and programmes.</p>
+
+    <section class="grid" aria-label="Supporters">
+      <article class="card" aria-labelledby="heddwch-name">
+        <img src="academi-heddwch-logo.png" alt="Academi Heddwch Cymru logo (placeholder)" />
+        <h3 id="heddwch-name" class="name">Academi Heddwch</h3>
+        <p class="desc">A Wales‑based initiative promoting peace research, dialogue, and collaboration across sectors.</p>
+        <p class="links"><a href="https://cymru.global/our-work/peace-and-peacebuilding/academi-heddwch-cymru/" target="_blank" rel="noopener">Visit Academi Heddwch →</a></p>
+      </article>
+
+      <article class="card" aria-labelledby="ba-name">
+        <img src="british-academy-logo.png" alt="The British Academy logo (placeholder)" />
+        <h3 id="ba-name" class="name">The British Academy</h3>
+        <p class="desc">The UK’s national academy for the humanities and social sciences, supporting research and public engagement.</p>
+        <p class="links"><a href="https://www.thebritishacademy.ac.uk/" target="_blank" rel="noopener">Visit British Academy →</a></p>
+      </article>
+
+      <article class="card" aria-labelledby="wxm-name">
+        <img src="wrexham-university-logo.png" alt="Wrexham University logo (placeholder)" />
+        <h3 id="wxm-name" class="name">Wrexham University</h3>
+        <p class="desc">Our home institution supports research, teaching, and community engagement in social computing and language technologies.</p>
+        <p class="links"><a href="https://www.wrexham.ac.uk/" target="_blank" rel="noopener">Visit Wrexham University →</a></p>
+      </article>
+    </section>
+
+    <p class="note">Logos will appear when you upload the corresponding image files (e.g., <code>academi-heddwch-logo.png</code>, <code>british-academy-logo.png</code>, <code>wrexham-university-logo.png</code>) to the same folder as this page.</p>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Peace Through Language. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
