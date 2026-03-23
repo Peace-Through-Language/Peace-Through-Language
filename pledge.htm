@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pledge for Peace – Peace Through Language</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --brand: #003366;
+      --accent: #005faa;
+      --text: #222;
+      --muted: #666;
+      --bg: #ffffff;
+      --card-border: #e5e7eb;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #f4f6f7;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 1.25rem 1rem;
+      background: #ffffff;
+      border-bottom: 1px solid #eee;
+    }
+
+    header h1 {
+      margin: 0 0 .25rem 0;
+      font-size: 1.8rem;
+      color: var(--brand);
+    }
+
+    header p { margin: 0; color: var(--muted); }
+
+    nav {
+      background: #f9fbff;
+      border-bottom: 1px solid #e6eef8;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding: .75rem 1rem;
+      margin: 0;
+      gap: .75rem 1rem;
+    }
+
+    .menu a, .menu span {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .menu .section {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    button {
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #004c94;
+    }
+
+    .pledge-display {
+      background: #eef7ff;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #005faa;
+      display: none;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      margin: 2rem 0 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Peace Through Language</h1>
+  <p>Pledge to create a kinder, more peaceful online world</p>
+</header>
+
+<nav aria-label="Primary">
+  <ul class="menu">
+    <li>index.htmMain</a></li>
+    <li>book.htmPeace Through Language</a></li>
+    <li>Harm.htmHarmful Language</a></li>
+    <li>about-us.htmlAbout Us</a></li>
+    <li>support-sponsor.htmlSponsor and Support</a></li>
+    <li><span class="section">Pledge</span></li>
+  </ul>
+</nav>
+
+<main id="content">
+  <div class="card">
+    <h2>Make Your Peace Pledge</h2>
+
+    <p>Please write one sentence about how you will use peaceful language online.</p>
+
+    <textarea id="pledgeText" placeholder="My pledge is..."></textarea>
+
+    <input id="pledgeName" type="text" placeholder="Your Name" />
+    <input id="pledgeEmail" type="email" placeholder="Your Email" />
+
+    <button onclick="submitPledge()">Submit Pledge</button>
+
+    <div id="pledgeOutput" class="pledge-display">
+      <h3>Your Pledge:</h3>
+      <p id="outText"></p>
+      <p><strong>Name:</strong> <span id="outName"></span></p>
+      <p><strong>Email:</strong> <span id="outEmail"></span></p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> Peace Through Language Project
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function submitPledge() {
+    const text = document.getElementById("pledgeText").value.trim();
+    const name = document.getElementById("pledgeName").value.trim();
+    const email = document.getElementById("pledgeEmail").value.trim();
+    const output = document.getElementById("pledgeOutput");
+
+    if (!text || !name || !email) {
+      alert("Please complete all fields before submitting.");
+      return;
+    }
+
+    document.getElementById("outText").textContent = text;
+    document.getElementById("outName").textContent = name;
+    document.getElementById("outEmail").textContent = email;
+
+    output.style.display = "block";
+  }
+</script>
+
+</body>
+</html>
