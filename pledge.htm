@@ -12,6 +12,7 @@
         margin: 10px 0; 
         border-left: 5px solid #007bff; 
         border-radius: 6px;
+        white-space: pre-wrap;
     }
     #container { max-width: 700px; margin: auto; }
     a.button { 
@@ -30,38 +31,44 @@
 <div id="container">
     <h1>Pledge Wall</h1>
 
-    <a class="button" id="pledgeLink" target="_blank">Submit a Pledge</a>
+    <!-- Submit button -->
+    <a class="button" target="_blank"
+       href="https://github.com/Peace-Through-Language/Peace-Through-Language/issues/new?template=pledge.yml">
+       Submit a Pledge
+    </a>
 
+    <!-- Where pledges will appear -->
     <div id="pledges"></div>
 </div>
 
 <script>
-const username = "Peace-Through-Language";
-const repo = "Peace-Through-Language";
-const label = "pledge";
-
-document.getElementById("pledgeLink").href =
-  `https://github.com/${username}/${repo}/issues/new?template=pledge.yml`;
-
 async function loadPledges() {
-    const url =
-      `https://api.github.com/repos/${username}/${repo}/issues?labels=${label}&state=open`;
+
+    // Your GitHub repo details
+    const username = "Peace-Through-Language";
+    const repo = "Peace-Through-Language";
+    const label = "pledge";
+
+    // GitHub API URL to fetch issues with label 'pledge'
+    const url = `https://api.github.com/repos/${username}/${repo}/issues?labels=${label}&state=open`;
 
     const res = await fetch(url);
-    const issues = await res.json();
+    const data = await res.json();
 
     const container = document.getElementById("pledges");
     container.innerHTML = "";
 
-    issues.forEach(issue => {
-        const div = document.createElement("div");
-        div.className = "pledge";
-        div.textContent = issue.body;
-        container.appendChild(div);
+    data.forEach(issue => {
+        const block = document.createElement("div");
+        block.className = "pledge";
+        block.textContent = issue.body;
+        container.appendChild(block);
     });
 }
 
+// Load pledges when page opens
 loadPledges();
 </script>
+
 </body>
 </html>
