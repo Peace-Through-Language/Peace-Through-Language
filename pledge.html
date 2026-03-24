@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -69,25 +70,25 @@
     }
 
     .button {
-      display: inline-block;
-      padding: 12px 22px;
-      background: var(--accent);
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      margin: 20px auto;
-      display: block;
-      width: fit-content;
-      font-weight: 600;
+        display: inline-block;
+        padding: 12px 22px;
+        background: var(--accent);
+        color: white;
+        border-radius: 6px;
+        text-decoration: none;
+        margin: 20px auto;
+        display: block;
+        width: fit-content;
+        font-weight: 600;
     }
 
     .pledge-line {
-      background: white;
-      margin: 10px 0;
-      padding: 12px 16px;
-      border-radius: 6px;
-      border-left: 5px solid var(--accent);
-      font-size: 1.05rem;
+        background: white;
+        margin: 10px 0;
+        padding: 12px 16px;
+        border-radius: 6px;
+        border-left: 5px solid var(--accent);
+        font-size: 1.05rem;
     }
 
     footer {
@@ -95,18 +96,6 @@
       text-align: center;
       font-size: .95rem;
       color: var(--muted);
-    }
-
-    /* University logo */
-    .uni-logo {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .uni-logo img {
-      max-width: 220px;
-      height: auto;
-      opacity: 0.95;
     }
   </style>
 </head>
@@ -122,20 +111,22 @@
 
   <nav aria-label="Primary">
     <ul class="menu">
-      <li>index.htmMain</a></li>
-      <li>book.htmPeace Through Language</a></li>
-      <li>harm.htmHarmful Language</a></li>
-      <li>pledge.htmlPledge</a></li>
-      <li>about.htmAbout Us</a></li>
-      <li>sponsor.htmSponsor and Support</a></li>
+      <li><a href="index.htm">Main</a></li>
+      <li><a href="book.htm">Peace Through Language</a></li>
+      <li><a href="harm.htm">Harmful Language</a></li>
+      <li><a href="pledge.html">Pledge</a></li>
+      <li><a href="about.htm">About Us</a></li>
+      <li><a href="sponsor.htm">Sponsor and Support</a></li>
     </ul>
   </nav>
 
+  <!-- Main Section -->
   <main id="content">
 
     <h2>Pledge Wall</h2>
-
-    https://github.com/Peace-Through-Language/Peace-Through-Language/issues/new?template=pledge.yml
+    <a class="button"
+       href="https://github.com/Peace-Through-Language/Peace-Through-Language/issues/new?template=pledge.yml"
+       target="_blank">
        ✍️ Sign the Pledge
     </a>
 
@@ -147,15 +138,14 @@
     © <span id="year"></span> Peace Through Language. All rights reserved.
   </footer>
 
-  <!-- University logo -->
-  <div class="uni-logo">wu.jpg </div>
-
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
     async function loadPledges() {
+
         const owner = "Peace-Through-Language";
         const repo  = "Peace-Through-Language";
+
         const url = `https://api.github.com/repos/${owner}/${repo}/issues?state=open`;
 
         const res = await fetch(url);
@@ -167,22 +157,29 @@
         let count = 1;
 
         issues.forEach(issue => {
+
             const body = issue.body || "";
 
             // Extract Pledge Sentence
             let pledge = "(No pledge provided)";
             const pledgeMatch = body.match(/### Your Pledge\s*\n([\s\S]*?)(\n###|$)/);
-            if (pledgeMatch) pledge = pledgeMatch[1].trim().split("\n")[0].trim();
+            if (pledgeMatch) {
+                pledge = pledgeMatch[1].trim().split("\n")[0].trim();
+            }
 
             // Extract Name
             let name = "Anonymous";
             const nameMatch = body.match(/### Your Name\s*\n(.+)/);
-            if (nameMatch) name = nameMatch[1].trim();
+            if (nameMatch) {
+                name = nameMatch[1].trim();
+            }
 
             // Extract Date
             let date = new Date(issue.created_at).toLocaleDateString();
             const dateMatch = body.match(/### Date Signed\s*\n(.+)/);
-            if (dateMatch) date = dateMatch[1].trim();
+            if (dateMatch) {
+                date = dateMatch[1].trim();
+            }
 
             // Add line
             const div = document.createElement("div");
@@ -194,11 +191,6 @@
         });
     }
 
-    loadPledges();
-  </script>
-
-</body>
-</html>
     loadPledges();
   </script>
 
