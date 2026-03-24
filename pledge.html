@@ -5,16 +5,15 @@
 <title>Pledge Wall</title>
 
 <style>
-    body { 
-        font-family: Arial, sans-serif; 
-        margin: 40px; 
-        background: #f7f7f7; 
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background: #f7f7f7;
     }
-    h1 { 
-        text-align: center; 
-        color: #003366; 
+    h1 {
+        text-align: center;
+        color: #003366;
     }
-
     .button {
         display: inline-block;
         padding: 12px 22px;
@@ -26,7 +25,6 @@
         display: block;
         width: fit-content;
     }
-
     .pledge-line {
         background: white;
         margin: 10px 0;
@@ -43,7 +41,7 @@
 
 <h1>Peace Through Language – Pledge Wall</h1>
 
-<!-- Submit Pledge Button -->
+<!-- Button to submit pledge -->
 <a class="button"
    href="https://github.com/Peace-Through-Language/Peace-Through-Language/issues/new?template=pledge.yml"
    target="_blank">
@@ -58,7 +56,6 @@ async function loadPledges() {
     const owner = "Peace-Through-Language";
     const repo  = "Peace-Through-Language";
 
-    // Fetch ALL open issues
     const url = `https://api.github.com/repos/${owner}/${repo}/issues?state=open`;
 
     const res = await fetch(url);
@@ -67,32 +64,41 @@ async function loadPledges() {
     const container = document.getElementById("pledges");
     container.innerHTML = "";
 
+    let count = 1; // Start numbering from 1
+
     issues.forEach(issue => {
 
-        // Extract pledge (first line of body)
         const body = issue.body || "";
-        const lines = body.split("\n").map(line => line.trim()).filter(l => l !== "");
-        const pledge = lines.length > 0 ? lines[0] : "(No pledge text)";
 
-        // Try extracting Name (from body if using template, else fallback)
+        // Extract Pledge Sentence (from ### Your Pledge)
+        let pledge = "(No pledge provided)";
+        const pledgeMatch = body.match(/### Your Pledge\s*\n([\s\S]*?)(\n###|$)/);
+        if (pledgeMatch) {
+            pledge = pledgeMatch[1].trim().split("\n")[0].trim();
+        }
+
+        // Extract Name
         let name = "Anonymous";
-
         const nameMatch = body.match(/### Your Name\s*\n(.+)/);
         if (nameMatch) {
             name = nameMatch[1].trim();
-        } else if (issue.title && issue.title.toLowerCase().startsWith("pledge:")) {
-            name = issue.title.replace("Pledge:", "").trim();
         }
 
-        // Date from Issue creation
-        const date = new Date(issue.created_at).toLocaleDateString();
+        // Extract Date
+        let date = new Date(issue.created_at).toLocaleDateString();
+        const dateMatch = body.match(/### Date Signed\s*\n(.+)/);
+        if (dateMatch) {
+            date = dateMatch[1].trim();
+        }
 
-        // Create simple one-line display
+        // Create one-line display with numbering
         const div = document.createElement("div");
         div.className = "pledge-line";
-        div.textContent = `${pledge} — ${name} — ${date}`;
+        div.textContent = `${count}. ${pledge} — ${name} — ${date}`;
 
         container.appendChild(div);
+
+        count++; // Increase count for next pledge
     });
 }
 
