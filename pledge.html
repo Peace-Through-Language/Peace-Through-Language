@@ -5,8 +5,15 @@
 <title>Pledge Wall</title>
 
 <style>
-    body { font-family: Arial, sans-serif; margin: 40px; background: #f7f7f7; }
-    h1 { text-align: center; color: #003366; }
+    body { 
+        font-family: Arial, sans-serif; 
+        margin: 40px; 
+        background: #f7f7f7; 
+    }
+    h1 { 
+        text-align: center; 
+        color: #003366; 
+    }
 
     .button {
         display: inline-block;
@@ -20,19 +27,13 @@
         width: fit-content;
     }
 
-    .pledge-box {
+    .pledge-line {
         background: white;
-        margin: 15px 0;
-        padding: 20px;
-        border-radius: 10px;
-        border-left: 6px solid #005faa;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.07);
-    }
-
-    .meta {
-        color: #666;
-        font-size: 0.9em;
-        margin-bottom: 10px;
+        margin: 10px 0;
+        padding: 12px 16px;
+        border-radius: 6px;
+        border-left: 5px solid #005faa;
+        font-size: 1.05rem;
     }
 </style>
 
@@ -54,11 +55,10 @@
 <script>
 async function loadPledges() {
 
-    // Correct repository path
     const owner = "Peace-Through-Language";
     const repo  = "Peace-Through-Language";
 
-    // Fetch ALL issues (open only)
+    // Fetch ALL open issues
     const url = `https://api.github.com/repos/${owner}/${repo}/issues?state=open`;
 
     const res = await fetch(url);
@@ -68,19 +68,29 @@ async function loadPledges() {
     container.innerHTML = "";
 
     issues.forEach(issue => {
-        const div = document.createElement("div");
-        div.className = "pledge-box";
 
-        div.innerHTML = `
-            <div class="meta">
-                <strong>Date:</strong> ${new Date(issue.created_at).toLocaleDateString()}
-            </div>
-            <div class="meta">
-                <strong>Submitted by:</strong> ${issue.user.login}
-            </div>
-            <h3>${issue.title}</h3>
-            <p>${issue.body.replace(/\n/g, "<br>")}</p>
-        `;
+        // Extract pledge (first line of body)
+        const body = issue.body || "";
+        const lines = body.split("\n").map(line => line.trim()).filter(l => l !== "");
+        const pledge = lines.length > 0 ? lines[0] : "(No pledge text)";
+
+        // Try extracting Name (from body if using template, else fallback)
+        let name = "Anonymous";
+
+        const nameMatch = body.match(/### Your Name\s*\n(.+)/);
+        if (nameMatch) {
+            name = nameMatch[1].trim();
+        } else if (issue.title && issue.title.toLowerCase().startsWith("pledge:")) {
+            name = issue.title.replace("Pledge:", "").trim();
+        }
+
+        // Date from Issue creation
+        const date = new Date(issue.created_at).toLocaleDateString();
+
+        // Create simple one-line display
+        const div = document.createElement("div");
+        div.className = "pledge-line";
+        div.textContent = `${pledge} — ${name} — ${date}`;
 
         container.appendChild(div);
     });
