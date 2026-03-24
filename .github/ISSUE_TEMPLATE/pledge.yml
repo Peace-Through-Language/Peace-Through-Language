@@ -1,0 +1,13 @@
+name: Pledge Submission
+description: Submit your pledge sentence.
+title: "Pledge: "
+labels: ["pledge"]
+body:
+  - type: textarea
+    id: pledge
+    attributes:
+      label: Your Pledge
+      description: Write one pledge sentence.
+      placeholder: "I pledge to..."
+    validations:
+      required: true
