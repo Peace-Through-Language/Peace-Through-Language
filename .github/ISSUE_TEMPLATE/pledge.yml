@@ -1,13 +1,40 @@
 name: Pledge Submission
-description: Submit your pledge sentence.
+description: Sign the pledge by entering your name, email (not displayed), date, and your pledge.
 title: "Pledge: "
 labels: ["pledge"]
 body:
+  - type: input
+    id: name
+    attributes:
+      label: Your Name
+      description: Enter your full name. (Your name **WILL** be displayed publicly.)
+      placeholder: "Jane Doe"
+    validations:
+      required: true
+
+  - type: input
+    id: email
+    attributes:
+      label: Your Email (PRIVATE)
+      description: Your email will **NOT** be displayed publicly. It is only collected for internal verification.
+      placeholder: "you@example.com"
+    validations:
+      required: true
+
+  - type: input
+    id: date
+    attributes:
+      label: Date Signed
+      description: Enter the date you are signing this pledge.
+      placeholder: "2026-03-24"
+    validations:
+      required: true
+
   - type: textarea
     id: pledge
     attributes:
       label: Your Pledge
-      description: Write one pledge sentence.
+      description: Write your pledge statement here.
       placeholder: "I pledge to..."
     validations:
       required: true
