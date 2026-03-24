@@ -1,5 +1,5 @@
 name: Pledge Submission
-description: Sign the pledge by entering your name, email (not displayed), date, and your pledge.
+description: Sign the pledge by entering your name, date, pledge, and email (email will be hidden).
 title: "Pledge: "
 labels: ["pledge"]
 body:
@@ -7,17 +7,18 @@ body:
     id: name
     attributes:
       label: Your Name
-      description: Enter your full name. (Your name **WILL** be displayed publicly.)
+      description: Your name WILL be displayed on the pledge wall.
       placeholder: "Jane Doe"
     validations:
       required: true
 
-  - type: input
+  - type: textarea
     id: email
     attributes:
-      label: Your Email (PRIVATE)
-      description: Your email will **NOT** be displayed publicly. It is only collected for internal verification.
+      label: Your Email (This will NOT be displayed publicly)
+      description: "Your email will be stored inside a collapsed section in the issue."
       placeholder: "you@example.com"
+      value: "<details><summary>Email (hidden)</summary>\nyou@example.com\n</details>"
     validations:
       required: true
 
@@ -34,7 +35,7 @@ body:
     id: pledge
     attributes:
       label: Your Pledge
-      description: Write your pledge statement here.
+      description: Write your pledge here.
       placeholder: "I pledge to..."
     validations:
       required: true
