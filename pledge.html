@@ -41,7 +41,6 @@
 
 <h1>Peace Through Language – Pledge Wall</h1>
 
-<!-- Button to submit pledge -->
 <a class="button"
    href="https://github.com/Peace-Through-Language/Peace-Through-Language/issues/new?template=pledge.yml"
    target="_blank">
@@ -64,41 +63,54 @@ async function loadPledges() {
     const container = document.getElementById("pledges");
     container.innerHTML = "";
 
-    let count = 1; // Start numbering from 1
+    let count = 1;
 
     issues.forEach(issue => {
 
         const body = issue.body || "";
 
-        // Extract Pledge Sentence (from ### Your Pledge)
+        /** -----------------------------
+         * 1. Extract Pledge Sentence
+         * ----------------------------- */
         let pledge = "(No pledge provided)";
+        
         const pledgeMatch = body.match(/### Your Pledge\s*\n([\s\S]*?)(\n###|$)/);
+
         if (pledgeMatch) {
-            pledge = pledgeMatch[1].trim().split("\n")[0].trim();
+            pledge = pledgeMatch[1].trim();
+
+            // Only take the first sentence / first line
+            pledge = pledge.split("\n")[0].trim();
         }
 
-        // Extract Name
+        /** -----------------------------
+         * 2. Extract Name
+         * ----------------------------- */
         let name = "Anonymous";
         const nameMatch = body.match(/### Your Name\s*\n(.+)/);
         if (nameMatch) {
             name = nameMatch[1].trim();
         }
 
-        // Extract Date
+        /** -----------------------------
+         * 3. Extract Date
+         * ----------------------------- */
         let date = new Date(issue.created_at).toLocaleDateString();
+
         const dateMatch = body.match(/### Date Signed\s*\n(.+)/);
         if (dateMatch) {
             date = dateMatch[1].trim();
         }
 
-        // Create one-line display with numbering
+        /** -----------------------------
+         * 4. Build Final Output Line
+         * ----------------------------- */
         const div = document.createElement("div");
         div.className = "pledge-line";
         div.textContent = `${count}. ${pledge} — ${name} — ${date}`;
 
         container.appendChild(div);
-
-        count++; // Increase count for next pledge
+        count++;
     });
 }
 
