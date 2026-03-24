@@ -52,8 +52,7 @@ async function loadPledges() {
     const repo = "Peace-Through-Language";
 
     const url = `https://api.github.com/repos/${username}/${repo}/issues?labels=pledge&state=open`;
-
-    const res = await fetch(url);
+   const res = await fetch(url);
     const issues = await res.json();
 
     const container = document.getElementById("pledges");
